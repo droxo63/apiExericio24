@@ -1,0 +1,14 @@
+{
+  "name": "Samsung Galaxy M55",
+  "price": 3500,
+  "quantity": 10,
+  "categories": ["Eletrônicos", "Smartphones"],
+  "description": "Smartphone Samsung Galaxy M55 com 128GB de armazenamento",
+  "photos": ["https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true"],
+  "popular": true,
+  "visible": true,
+  "location": "São Paulo",
+  "additionalDetails": "Garantia de 12 meses",
+  "specialPrice": 2999
+}
+

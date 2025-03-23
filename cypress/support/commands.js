@@ -9,17 +9,24 @@
 // ***********************************************
 //
 //
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import productData from "../fixtures/productData.json";
+//fixture.productData = productData
+
+Cypress.Commands.add('login', (email, phone, password, userId) => {
+    cy.request({
+      method: 'POST',
+      url: '/public/authUser',
+      body: {
+       "email": email,  
+          "phone": phone,  
+          "password": password,  
+          "userId": userId  
+      },
+
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+      return response.body.token;
+    });
+  });
+
+  
