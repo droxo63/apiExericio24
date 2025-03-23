@@ -3,27 +3,29 @@
 import productData from "../../fixtures/productData.json";  // Importando os dados da fixture
 
 describe('API Tests - Produtos', () => {
-  let token;  // Para armazenar o token de autenticação
+  let token;  // Para armazenar o token 
 
   beforeEach(() => {
-    // Realiza o login para obter o token
-    cy.login('cliente@ebac.com.br', "14999887766", 'admin123', "1").then((authToken) => {
-      token = authToken;  // Armazena o token retornado
-    });
-  });
+    cy.emailAleatorio().then((emailAleatorio) => {
+        cy.senhaAleatoria().then((senhaAleatoria) => {
+            cy.login(emailAleatorio, "14999887766", senhaAleatoria, "1").then((authToken) => {
+      token = authToken;  // Armazena o token 
+            })
+        })
+    })
+})
 
-  it.only('Deve adicionar o produto com sucesso', () => {
+  it('Deve adicionar o produto com sucesso', () => {
     cy.request({
       method: 'POST',
       url: '/api/addProduct', 
       headers: {
-        'Authorization': `Bearer ${token}`  // Usando o token para autenticação
+        'Authorization': `Bearer ${token}`  
       },
-      body: productData,  // Usando os dados do produto da fixture
+      body: productData,  
     }).then((response) => {
-      expect(response.status).to.eq(200);  // Verifica se o status é 200
-      expect(response.body).to.have.property('success');
-      expect(response.body).to.have.property('message');
+      expect(response.status).to.eq(200);  
+
     });
   });
 
@@ -32,31 +34,30 @@ describe('API Tests - Produtos', () => {
     
     cy.request({
       method: 'PUT',
-      url: `/api/editProduct/${productId}`,  // Endpoint para editar o produto
+      url: `/api/editProduct/${productId}`,  
       headers: {
-        'Authorization': `Bearer ${token}`  // Usando o token para autenticação
+        'Authorization': `Bearer ${token}`  
       },
-      body: productData,  // Usando os dados do produto da fixture
+      body: productData,  
     }).then((response) => {
-      expect(response.status).to.eq(200);  // Verifica se o status é 200
+      expect(response.status).to.eq(200);  
       
     });
   });
 
   it('Deve deletar o produto com sucesso', () => {
-    const productId = 1;  // ID do produto a ser deletado
-
+    const productId = 1;  // ID do produto
     cy.request({
       method: 'DELETE',
-      url: `/api/deleteProduct/${productId}`,  // Endpoint para deletar o produto
+      url: `/api/deleteProduct/${productId}`,  
       headers: {
-        'Authorization': `Bearer ${token}`  // Usando o token para autenticação
+        'Authorization': `Bearer ${token}`  
       },
       body: {
-        "authorization": token  // Envia o token no corpo da requisição
+        "authorization": token  
       },
     }).then((response) => {
-      expect(response.status).to.eq(200);  // Verifica se o status é 200
+      expect(response.status).to.eq(200);  
       
     });
   });

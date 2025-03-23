@@ -29,4 +29,19 @@ Cypress.Commands.add('login', (email, phone, password, userId) => {
     });
   });
 
+   // Função para gerar um email aleatório
+   Cypress.Commands.add("emailAleatorio", ()=>{
+    const pre = 'user';
+    const num = Math.floor(Math.random() * 100); 
+    return `${pre}${num}@teste.com`;
+   }) 
+    
+  
+
+  // Função para gerar uma senha aleatória
+  Cypress.Commands.add("senhaAleatoria", ()=>{
+    return Math.random().toString(36).slice(-10);
+    
+  })
+   
   
