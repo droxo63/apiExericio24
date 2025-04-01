@@ -33,7 +33,7 @@ beforeEach(async () => {
       .withJson({
         "email": "cliente@ebac.com.br",  
         "phone": "14999887766",  
-        "password": "admin123",  
+        "password": "1234516",  
         "userId": "01"
       })
       .expectStatus(200)

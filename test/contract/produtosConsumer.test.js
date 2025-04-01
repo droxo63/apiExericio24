@@ -35,19 +35,19 @@ handler.addInteractionHandler('Authorization', () => {
       body: {
         "email": "cliente@ebac.com.br",  
         "phone": "14999887766",  
-        "password": "admin123",  
+        "password": "123456",  
         "userId": "01"
       }
     },
     response: {
       status: 200,
-      body: { token: like ("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY3ZTAzMTMwYWQwYTI4ZDE4NGZiMDVkNCIsImVtYWlsIjoiY2xpZW50ZUBlYmFjMS5jb20uYnIiLCJwaG9uZSI6IjE0OTk5ODg3NzY2Iiwicm9sZSI6InVzZXIifSwiaWF0IjoxNzQyNzQ1OTA0LCJleHAiOjE3NDI4MzIzMDR9.-LVcN6ypuXxv-JQmlIm1QbCU9SFyuO37xDJkZ6xG43o" )}
-      /*body: {
-        "success": true
-      } */
+      //body: { token: "mocked-token" }
+       // 
     }
-  }    
-})
+    }
+  })
+   
+
 
 
 beforeEach(async () => {
@@ -58,7 +58,7 @@ beforeEach(async () => {
       .withJson({
         "email": "cliente@ebac.com.br",  
         "phone": "14999887766",  
-        "password": "admin123",  
+        "password": "123456",  
         "userId": "01"
       })
       .expectStatus(200)
@@ -100,7 +100,7 @@ beforeEach(async () => {
   it('Front - Deve adicionar o produto com sucesso com dados fixos', async () => {
     await flow('Add Product')
     .useInteraction("Add Product Response")
-      .post('http://localhost:4040/api/addProduct')
+      .post('http://localhost:4000/api/addProduct')
       .withHeaders({
         'Authorization': `Bearer ${token}`  // Passa o token para a autenticação
       })
