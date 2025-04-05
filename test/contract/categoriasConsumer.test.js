@@ -65,25 +65,17 @@ beforeEach(async () => {
     token = response.body.token;  // Armazena o token
   });
   
-  handler.addInteractionHandler('Add Product Response', () => {
+  handler.addInteractionHandler('Add Category Response', () => {
     return {
       provider: 'loja-ebac-api', 
-      flow: 'Add Product', 
+      flow: 'Add Category', 
       request: {
         method: 'POST',
-        path: 'http://localhost:8081/api/addProduct',
+        path: 'http://localhost:8081/api/addCategory',
         body: {
-        "name": "Samsung Galaxy M55", 
-        "price": 1999.99,  
-        "quantity": 10,  
-        "categories": ["Smartphones"],  
-        "description": "Samsung Galaxy M55 - O melhor smartphone da sua categoria",  
-        "photos": ["https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true"],
-        "popular": true,  
-        "visible": true,  
-        "location": "Brasil",  
-        "additionalDetails": "Detalhes adicionais sobre o produto",  
-        "specialPrice": 1799.99
+          'authorization': `Bearer ${token}`,  
+          'name': 'Categoria Teste',  
+          'photo': 'https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true',
         }
       },
       response: {
@@ -92,37 +84,30 @@ beforeEach(async () => {
     }    
   })
 
-  it('Front - Deve adicionar o produto com sucesso com dados fixos', async () => {
-    await flow('Add Product')
-    .useInteraction("Add Product Response")
-      .post('http://localhost:4000/api/addProduct')
+  it(' Deve adicionar a categoria com sucesso ', async () => {
+    await flow('Add Category')
+      .useInteraction("Add Category Response")
+      .post('http://localhost:4000/api/addCategory')
       .withHeaders({
         'Authorization': `Bearer ${token}`  // Passa o token para a autenticação
       })
       .withJson({
-        "name": "Samsung Galaxy M55", 
-        "price": 1999.99,  
-        "quantity": 10,  
-        "categories": ["Smartphones"],  
-        "description": "Samsung Galaxy M55 - O melhor smartphone da sua categoria",  
-        "photos": ["https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true"],
-        "popular": true,  
-        "visible": true,  
-        "location": "Brasil",  
-        "additionalDetails": "Detalhes adicionais sobre o produto",  
-        "specialPrice": 1799.99
+        'authorization': `Bearer ${token}`,  
+          'name': 'Categoria Teste',  
+          'photo': 'https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true',  
       })
-      .expectStatus(200)   
+      .expectStatus(200)
+      
   });
 
-  handler.addInteractionHandler('Edit Product Response', () => {
-    const productId = 1;
+  handler.addInteractionHandler('Edit Category Response', () => {
+    const categoryId = 1;
     return {
       provider: 'loja-ebac-api', 
-      flow: 'Edit Product', 
+      flow: 'Edit Category', 
       request: {
         method: 'PUT',
-        path: `http://localhost:8081/api/editProduct/${productId}`,
+        path: `http://localhost:8081/api/editCategory/${categoryId}`,
         body: {
           "authorization": token,  
           "name": "Smartphones e Acessórios",  
@@ -144,40 +129,31 @@ beforeEach(async () => {
     }    
   })
 
-  it('Deve editar um produto com sucesso', async () => {
-    const productId = 1;
-    await flow ('Edit Product')
-    .useInteraction("Edit Product Response")
-    .put(`http://localhost:4000/api/editProduct/${productId}`)
+  it('Deve editar a categoria com sucesso', async () => {
+    const categoryId = 1;
+    await flow ('Edit Category')
+    .useInteraction("Edit Category Response")
+    .put(`http://localhost:4000/api/editCategory/${categoryId}`)
     .withHeaders({
       'Authorization': `Bearer ${token}`
     })
 
       .withJson({
-                "authorization": token,  
-                "name": "Smartphones e Acessórios",  
-                "price": 1.700,  
-                "quantity": 50,  
-                "categories": "Smartphones",  
-                "description": "Smartphone Samsung Galaxy M55",  
-                "photos": false,  
-                "popular": true,  
-                "visible": true,  
-                "location": "BRA",  
-                "additionalDetails": "Produto show de bola",  
-                "specialPrice": 1.400  
+        'authorization': `Bearer ${token}`,  
+        'name': 'Categoria Teste Editada',  
+        'photo': 'https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true',
       })
       .expectStatus(200)
     });
   
-    handler.addInteractionHandler('Delete Product Response', () => {
-      const productId = 1; 
+    handler.addInteractionHandler('Delete Category Response', () => {
+      const categoryId = 1; 
       return {
         provider: 'loja-ebac-api', 
-        flow: 'Delete Product', 
+        flow: 'Delete Category', 
         request: {
           method: 'DELETE',
-          path: `http://localhost:8081/api/deleteProduct/${productId}`,
+          path: `http://localhost:8081/api/deleteProduct/${categoryId}`,
           body: {
             "authorization": token  
           }
@@ -188,11 +164,11 @@ beforeEach(async () => {
       }    
     })
 
-    it('Deve deletar o produto com sucesso',  async () => {
-      const productId = 1;  
-      await flow ('Delete Product')
-      .useInteraction("Delete Product Response")
-    .delete(`http://localhost:4000/api/deleteProduct/${productId}`)
+    it('Deve deletar a categoria com sucesso',  async () => {
+      const categoryId = 1;  
+      await flow ('Delete Category')
+      .useInteraction("Delete Category Response")
+    .delete(`http://localhost:4000/api/deleteCategory/${categoryId}`)
     .withHeaders({
       'Authorization': `Bearer ${token}`
     })
@@ -201,4 +177,3 @@ beforeEach(async () => {
         })
         .expectStatus(200)
         })
-      

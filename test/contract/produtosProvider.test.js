@@ -1,6 +1,6 @@
 const { reporter, flow, mock, handler } = require('pactum');
 const pf = require('pactum-flow-plugin');
-const { BASE_URL, MOCK_URL } = require('../../test/contract/config')
+
 
 function addFlowReporter() {
   pf.config.url = 'http://localhost:8081'; // pactum flow server url
@@ -44,7 +44,7 @@ beforeEach(async () => {
 
   
   
-  it(' Deve adicionar o produto com sucesso com dados fixos', async () => {
+  it(' Deve adicionar o produto com sucesso ', async () => {
     await flow('Add Product')
       .post('http://localhost:8081/api/addProduct')
       .withHeaders({
@@ -66,4 +66,47 @@ beforeEach(async () => {
       .expectStatus(200)
       
   });
+
+  // Teste de Editar Categoria
+  it('Deve editar um produto com sucesso', async () => {
+    const productId = 1;
+    await flow ('Edit Product')
+    .put(`http://localhost:8081/api/editProduct/${productId}`)
+    .withHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+
+      .withJson({
+                "authorization": token,  
+                "name": "Smartphones e Acessórios",  
+                "price": 1.700,  
+                "quantity": 50,  
+                "categories": "Smartphones",  
+                "description": "Smartphone Samsung Galaxy M55",  
+                "photos": false,  
+                "popular": true,  
+                "visible": true,  
+                "location": "BRA",  
+                "additionalDetails": "Produto show de bola",  
+                "specialPrice": 1.400  
+      })
+      .expectStatus(200)
+    });
   
+
+    it('Deve deletar o produto com sucesso',  async () => {
+      const productId = 1;  
+      await flow ('Delete Product')
+    .delete(`http://localhost:8081/api/deleteProduct/${productId}`)
+    .withHeaders({
+      'Authorization': `Bearer ${token}`
+    })
+        .withJson ({
+          "authorization": token  
+        })
+        .expectStatus(200)
+        })
+
+       
+      
+   
