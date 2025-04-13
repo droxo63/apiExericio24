@@ -9,7 +9,7 @@ describe('API Tests', () => {
         method: 'POST',
         url: '/public/authUser', 
         body: {
-          "email": "admin@admin.com",  
+          "email": "cliente@ebac.com.br",  
           "phone": "14999887766",  
           "password": "admin123",  
           "userId": "01"  
@@ -48,7 +48,7 @@ describe('API Tests', () => {
       });
     });
 
-    it('Deve editar um produto com sucesso', () => {
+ 
 
         it('Deve editar o produto com sucesso com dados fixos', () => {
             const productId = 1;  // ID do produto 
@@ -80,7 +80,7 @@ describe('API Tests', () => {
               expect(response.body.message).to.eq('Product updated successfully');  
             })
         })
-      });
+     
 
       it('Deve deletar o produto com sucesso com dados fixos', () => {
         const productId = 1;  
@@ -101,3 +101,4 @@ describe('API Tests', () => {
         });
       });
     });
+  

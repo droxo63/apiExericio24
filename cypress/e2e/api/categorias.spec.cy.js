@@ -36,7 +36,7 @@ describe('API Tests - Categorias', () => {
         body: {
           'authorization': `Bearer ${token}`,  
           'name': 'Categoria Teste',  
-          'photo': 'https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true',  // URL da foto da categoria
+          'photo': 'https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true',  
         },
       }).then((response) => {
         console.log('Resposta da requisição de adicionar categoria:', response); 

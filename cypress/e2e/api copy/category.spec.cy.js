@@ -6,7 +6,6 @@ describe('API Tests - Categorias', () => {
   let token;  // Para armazenar o token 
 
   beforeEach(() => {
-
     cy.emailAleatorio().then((emailAleatorio) => {
         cy.senhaAleatoria().then((senhaAleatoria) => {
             cy.login(emailAleatorio, "14999887766", senhaAleatoria, "1").then((authToken) => {

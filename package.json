@@ -1,22 +1,24 @@
 {
-  "name": "pactum-contract",
+  "name": "cypress-api-automation",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto de automação de testes de API com Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/**/*.test.js",
-    "test:produtosProvider": "mocha ./test/contract/produtosProvider.test.js",
-    "test:produtosConsumer": "mocha ./test/contract/produtosConsumer.test.js"
+    "test": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cypress",
+    "api",
+    "automation",
+    "qa",
+    "rest"
+  ],
+  "author": "Diego",
+  "license": "MIT",
   "devDependencies": {
-    "cypress": "^14.2.0",
-    "mocha": "^11.1.0",
-    "pactum": "^3.7.6"
-  },
-  "dependencies": {
-    "pactum-flow-plugin": "^0.1.4"
+    "cypress": "^13.6.6"
   }
 }
+

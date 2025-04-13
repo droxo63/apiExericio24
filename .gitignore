@@ -1,0 +1,15 @@
+# Ignorar o diretório de dependências do Node.js
+node_modules/
+
+# Ignorar logs do Node.js
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignorar arquivos de cache do npm
+.npm/
+
+
+# Ignorar arquivos do Cypress
+/cypress/videos/
+/cypress/screenshots/
