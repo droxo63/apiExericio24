@@ -25,7 +25,7 @@ Cypress.Commands.add('login', (email, phone, password, userId) => {
 
     }).then((response) => {
       expect(response.status).to.eq(200);
-      return response.body.token;
+      //return response.body.token;
     });
   });
 

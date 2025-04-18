@@ -1,0 +1,41 @@
+name: CI Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v3
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+
+      - name: 📦 Instala dependências
+        run: npm install
+
+      - name: 🚀 Inicia o servidor Serverest
+        run: |
+          nohup npx serverest > serverest.log &
+          sleep 3
+
+      - name: 🧪 Executa testes Cypress e gera relatório
+        run: npm run cy:full-report
+
+      - name: 📤 Publica o relatório no GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: cypress/results
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
