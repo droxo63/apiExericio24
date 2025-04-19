@@ -13,7 +13,8 @@
     "cy:report:html": "npx mochawesome-report-generator cypress/results/merged-report.json --reportDir cypress/results --reportFilename index.html",
     "start": "npx serverest",
     "cy:run-ci": "start-server-and-test start http://localhost:3000 cy:run",
-    "clean:reports": "del /q cypress\\results\\*.json",
+    "clean:reports": "rm -f cypress/results/*.json",
+
     "cy:full-report": "npm run clean:reports && npm run cy:run && npm run cy:report && npm run cy:report:html"
   },
   "keywords": [],
