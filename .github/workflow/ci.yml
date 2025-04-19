@@ -7,29 +7,32 @@ on:
   pull_request:
     branches:
       - main
-
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name:  Checkout do código
+      - name: 📥 Checkout do código
         uses: actions/checkout@v3
 
-      - name:  Setup Node.js
+      - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '16'
-        continue-on-error: true 
-      - name:  Instala dependências
+
+      - name: 📦 Instala dependências
         run: npm install
-        browser: chrome
-        start: npm start
-      
-      - name:  Executa testes Cypress e gera relatório
+
+      - name: 🚀 Inicia o servidor Serverest
+        run: |
+          nohup npx serverest > serverest.log &
+          sleep 3
+
+      - name: 🧪 Executa testes Cypress e gera relatório
         run: npm run cy:full-report
 
-      - name:  Publica o relatório no GitHub Pages
+      - name: 📤 Publica o relatório no GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
