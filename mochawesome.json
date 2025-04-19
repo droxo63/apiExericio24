@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-19T15:42:58.006Z",
+    "end": "2025-04-19T15:42:59.300Z",
+    "duration": 1294,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "987db163-db3e-4a5f-adb4-7770ea2dd54a",
+      "title": "",
+      "fullFile": "cypress/e2e/api/categorias.spec.cy.js",
+      "file": "cypress/e2e/api/categorias.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9712d4b1-6154-4992-891b-a52180b90ee9",
+          "title": "API Tests - Categorias",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve adicionar uma categoria com sucesso",
+              "fullTitle": "API Tests - Categorias Deve adicionar uma categoria com sucesso",
+              "timedOut": null,
+              "duration": 730,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: 'api/addCategory',\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: {\n    'authorization': `Bearer ${token}`,\n    'name': 'Categoria Teste',\n    'photo': 'https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true'\n  }\n}).then(response => {\n  console.log('Resposta da requisição de adicionar categoria:', response);\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "c40e1a0c-0918-4eed-a3b4-a035f17fc720",
+              "parentUUID": "9712d4b1-6154-4992-891b-a52180b90ee9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve editar uma categoria com sucesso",
+              "fullTitle": "API Tests - Categorias Deve editar uma categoria com sucesso",
+              "timedOut": null,
+              "duration": 259,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const categoryId = 1; // ID da categoria \ncy.request({\n  method: 'PUT',\n  url: `/api/editCategory/${categoryId}`,\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: {\n    'authorization': `Bearer ${token}`,\n    'name': 'Categoria Teste Editada',\n    'photo': 'https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true' // Nova URL da foto da categoria\n  }\n}).then(response => {\n  console.log('Resposta da requisição de editar categoria:', response);\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "b83edb53-cc94-4775-8e02-5f21619fbbc0",
+              "parentUUID": "9712d4b1-6154-4992-891b-a52180b90ee9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve deletar uma categoria com sucesso",
+              "fullTitle": "API Tests - Categorias Deve deletar uma categoria com sucesso",
+              "timedOut": null,
+              "duration": 259,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const categoryId = 1; // ID da categoria \ncy.request({\n  method: 'DELETE',\n  url: `/api/deleteCategory/${categoryId}`,\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: {\n    'authorization': `Bearer ${token}`\n  }\n}).then(response => {\n  console.log('Resposta da requisição de deletar categoria:', response);\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "508293fe-b5bb-42cf-b710-1c7860619d8d",
+              "parentUUID": "9712d4b1-6154-4992-891b-a52180b90ee9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c40e1a0c-0918-4eed-a3b4-a035f17fc720",
+            "b83edb53-cc94-4775-8e02-5f21619fbbc0",
+            "508293fe-b5bb-42cf-b710-1c7860619d8d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1248,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "reportFilename": "mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

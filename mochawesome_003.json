@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-19T15:43:04.534Z",
+    "end": "2025-04-19T15:43:05.446Z",
+    "duration": 912,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "10991ec7-bd83-4b2e-bc8b-6b04b6d7637c",
+      "title": "",
+      "fullFile": "cypress/e2e/api copy/products.spec.cy.js",
+      "file": "cypress/e2e/api copy/products.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "aa69cb63-1862-48f1-8de1-91ca1e26d12c",
+          "title": "API Tests - Produtos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve adicionar o produto com sucesso",
+              "fullTitle": "API Tests - Produtos Deve adicionar o produto com sucesso",
+              "timedOut": null,
+              "duration": 274,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: '/api/addProduct',\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: _productData.default\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "bd70e21a-61aa-47bf-b78d-1ec199d30362",
+              "parentUUID": "aa69cb63-1862-48f1-8de1-91ca1e26d12c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve editar um produto com sucesso",
+              "fullTitle": "API Tests - Produtos Deve editar um produto com sucesso",
+              "timedOut": null,
+              "duration": 259,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 1; // ID do produto a ser editado\ncy.request({\n  method: 'PUT',\n  url: `/api/editProduct/${productId}`,\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: _productData.default\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "318c6ec2-845f-48ed-a74e-acba75336220",
+              "parentUUID": "aa69cb63-1862-48f1-8de1-91ca1e26d12c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve deletar o produto com sucesso",
+              "fullTitle": "API Tests - Produtos Deve deletar o produto com sucesso",
+              "timedOut": null,
+              "duration": 335,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 1; // ID do produto\ncy.request({\n  method: 'DELETE',\n  url: `/api/deleteProduct/${productId}`,\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: {\n    \"authorization\": token\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "acd86658-2bed-4c3f-8516-cc22d3bedc0c",
+              "parentUUID": "aa69cb63-1862-48f1-8de1-91ca1e26d12c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bd70e21a-61aa-47bf-b78d-1ec199d30362",
+            "318c6ec2-845f-48ed-a74e-acba75336220",
+            "acd86658-2bed-4c3f-8516-cc22d3bedc0c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 868,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "reportFilename": "mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
