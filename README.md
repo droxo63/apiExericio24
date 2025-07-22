@@ -1,3 +1,9 @@
+## 👋 Olá! Eu sou Diego R. Pereira
+
+Sou um profissional em formação com foco em **Qualidade de Software** e **Testes Automatizados**. 
+Estou constantemente explorando ferramentas modernas de QA, como Cypress, Postman e Git, com projetos práticos que envolvem automação de testes E2E, testes de API REST e uso de CI/CD.
+Atualmente participo do curso da EBAC em Engenharia de Qualidade de Software, onde venho desenvolvendo projetos reais com aplicação de boas práticas, versionamento e documentação.
+
 #  🧪 Testes de API REST — ServeRest / Usuários
 
 
@@ -113,27 +119,32 @@ Contribuições são bem-vindas! Caso tenha sugestões de melhorias, novos cená
 
 
 
-### Detalhes
+---
+
+### 💻 Detalhes do GitHub
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=droxo63&show_icons=true&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
 
+---
 
-### Projetos
+### 📁 Projeto em Destaque
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=droxo63&repo=TCC-EBAC-QE.github.io&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=droxo63&repo=apiExericio24&theme=dark)](https://github.com/droxo63/apiExericio24)
 
+🔍 **Descrição:**  
+Este repositório contém testes de API REST aplicados sobre a API fictícia ServeRest. O projeto é dividido em duas partes: testes manuais com Postman e testes automatizados com Cypress, seguindo documentação Swagger e práticas de versionamento com Git.
 
+---
 
-### Linguagens utilizadas
+### 🧑‍💻 Linguagens Utilizadas
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=droxo63&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=droxo63&layout=compact&theme=dark)](https://github.com/anuraghazra/github-readme-stats)
 
+---
 
-### Contatos
+### 📫 Contato
 
 [<img src='https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white' alt='Linkedin' height='30'>](https://www.linkedin.com/in/dirpereira/)
-
-
 
 
 
