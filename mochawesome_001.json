@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-07-22T00:25:47.943Z",
+    "end": "2025-07-22T00:25:49.095Z",
+    "duration": 1152,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "1e3f5747-e041-4e37-9d75-ea8695cf9602",
+      "title": "",
+      "fullFile": "cypress/e2e/api/produtos.spec.cy.js",
+      "file": "cypress/e2e/api/produtos.spec.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6d3bca1c-8047-4689-968e-69e8d8a5eefe",
+          "title": "API Tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve adicionar o produto  com sucesso com dados fixos",
+              "fullTitle": "API Tests Deve adicionar o produto  com sucesso com dados fixos",
+              "timedOut": null,
+              "duration": 382,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: 'POST',\n  url: '/api/addProduct',\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: {\n    \"name\": \"Samsung Galaxy M55\",\n    \"price\": 1999.99,\n    \"quantity\": 10,\n    \"categories\": [\"Smartphones\"],\n    \"description\": \"Samsung Galaxy M55 - O melhor smartphone da sua categoria\",\n    \"photos\": [\"https://samsungbrshop.vtexassets.com/arquivos/ids/230984-600-auto?v=638465404494130000&width=600&height=auto&aspect=true\"],\n    // URL da imagem\n    \"popular\": true,\n    \"visible\": true,\n    \"location\": \"Brasil\",\n    \"additionalDetails\": \"Detalhes adicionais sobre o produto\",\n    \"specialPrice\": 1799.99\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "0cc13073-0c9c-4735-a8bd-fed48e97f903",
+              "parentUUID": "6d3bca1c-8047-4689-968e-69e8d8a5eefe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve editar o produto com sucesso com dados fixos",
+              "fullTitle": "API Tests Deve editar o produto com sucesso com dados fixos",
+              "timedOut": null,
+              "duration": 365,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 1; // ID do produto \ncy.request({\n  method: 'PUT',\n  url: `/api/editProduct/${productId}`,\n  // Endpoint \n  headers: {\n    'Authorization': `Bearer ${token}` // token gerado\n  },\n  body: {\n    \"authorization\": token,\n    \"name\": \"Smartphones e Acessórios\",\n    \"price\": 1.700,\n    \"quantity\": 50,\n    \"categories\": \"Smartphones\",\n    \"description\": \"Smartphone Samsung Galaxy M55\",\n    \"photos\": false,\n    \"popular\": true,\n    \"visible\": true,\n    \"location\": \"BRA\",\n    \"additionalDetails\": \"Produto show de bola\",\n    \"specialPrice\": 1.400\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n  // expect(response.body.success).to.eq(true);\n  // expect(response.body.message).to.eq('Product updated successfully');  \n});",
+              "err": {},
+              "uuid": "290af9cb-c972-4635-b6d9-8eb75fbb8ae5",
+              "parentUUID": "6d3bca1c-8047-4689-968e-69e8d8a5eefe",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve deletar o produto com sucesso com dados fixos",
+              "fullTitle": "API Tests Deve deletar o produto com sucesso com dados fixos",
+              "timedOut": null,
+              "duration": 363,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const productId = 1;\ncy.request({\n  method: 'DELETE',\n  url: `/api/deleteProduct/${productId}`,\n  headers: {\n    'Authorization': `Bearer ${token}`\n  },\n  body: {\n    \"authorization\": token\n  }\n}).then(response => {\n  expect(response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "5c21713c-ba7d-4fac-a13c-842988e18b0b",
+              "parentUUID": "6d3bca1c-8047-4689-968e-69e8d8a5eefe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0cc13073-0c9c-4735-a8bd-fed48e97f903",
+            "290af9cb-c972-4635-b6d9-8eb75fbb8ae5",
+            "5c21713c-ba7d-4fac-a13c-842988e18b0b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1110,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "reportFilename": "mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
